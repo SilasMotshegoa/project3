@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delivery Tracking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="DeliveryStyles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="header">
+      <h1>YOUR ORDER IS ON THE WAY</h1>
+      <p>Track your shipment below to see your delivery status.</p>
+    </div>
+
+    <div class="content">
+      <div class="estimated-delivery">
+        <h2>ESTIMATED DELIVERY</h2>
+        <p>Still Calculating</p>
+        <p>CHECK BACK SOON</p>
+      </div>
+      <button class="track-button">Track My Package</button>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="step completed">
+          <span>📄</span>
+          <p>Order Processed</p>
+        </div>
+        <div class="step completed">
+          <span>📦</span>
+          <p>Order Shipped</p>
+        </div>
+        <div class="step active">
+          <span>🚚</span>
+          <p>Order En Route</p>
+        </div>
+        <div class="step">
+          <span>✅</span>
+          <p>Order Arrived</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+   
+   document.querySelector('.track-button').addEventListener('click', () => {
+  alert('Tracking functionality coming soon! 📦✨');
+});
+
+  </script>
+</body>
+</html>
