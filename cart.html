@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - Mashobane and Co</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      color: #333;
+      margin: 0;
+    }
+
+    .cart-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #000; /* Solid black color */
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-image img {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .item-info {
+      flex: 2;
+    }
+
+    .item-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .item-price {
+      color: #777;
+    }
+
+    .quantity {
+      flex: 1;
+      text-align: center;
+    }
+
+    .quantity input {
+      width: 50px;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #333;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+
+    <div class="cart-item">
+      <div class="item-image">
+        <img src="Sweater.png" alt="Navy Sweater">
+      </div>
+      <div class="item-info">
+        <div class="item-name">Navy Blue Sweater</div>
+        <div class="item-price" data-price="400">R400</div>
+      </div>
+      <div class="quantity">
+        <input type="number" value="1" min="1" class="qty">
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="item-image">
+        <img src="shopping.png" alt="Black Tech Fleece Tracksuit">
+      </div>
+      <div class="item-info">
+        <div class="item-name">Black Tech Fleece Tracksuit</div>
+        <div class="item-price" data-price="1850">R1850</div>
+      </div>
+      <div class="quantity">
+        <input type="number" value="1" min="1" class="qty">
+      </div>
+    </div>
+
+    <div class="total">
+      Total: R<span id="cart-total">2250</span>
+    </div>
+
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    function updateTotal() {
+      let total = 0;
+      const items = document.querySelectorAll('.cart-item');
+      items.forEach(item => {
+        const price = parseFloat(item.querySelector('.item-price').dataset.price);
+        const qty = parseInt(item.querySelector('.qty').value);
+        total += price * qty;
+      });
+      document.getElementById('cart-total').textContent = total;
+    }
+
+    // Attach input event to all quantity fields
+    document.querySelectorAll('.qty').forEach(input => {
+      input.addEventListener('input', updateTotal);
+    });
+
+    // Initial total calculation
+    updateTotal();
+  </script>
+</body>
+</html>
