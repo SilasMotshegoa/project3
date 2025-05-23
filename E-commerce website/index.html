@@ -579,14 +579,11 @@
     const selectElement = document.getElementById('filter');
             selectedOption = selectElement.options[selectElement.selectedIndex].value;
 
-    // Select the containers
     const shoppingContainerMale = document.querySelector('.shop-container');
     const shoppingContainerFemale = document.querySelector('.shop-containerFemale');
     const shoppingContainerKids = document.querySelector('.shop-containerKids');
 
 
-
-    // Show the selected one
     if (selectedOption === 'male') {
         shoppingContainerMale.hidden = false;
         shoppingContainerFemale.hidden = true;
